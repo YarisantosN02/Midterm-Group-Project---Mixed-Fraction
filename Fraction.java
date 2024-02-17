@@ -36,7 +36,7 @@ public class Fraction {
     }
     public int computeGCD(int d1, int d2){
         int gcd = 0;
-        for (int i = 1; i <= d1 && i <= d2; i++){
+        for (int i = 1; i <= d1 && i <= d2; i++){    // change code
             if (d1 % i == 0 && d2 % i == 0) {
                 gcd = i;
             }
