@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class FractionArithmetic {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
-        int numerator1, numerator2, denominator1, denominator2;
+        int numerator, denominator;
 
         Fraction f1 = new Fraction();
         Fraction f2 = new Fraction();
@@ -64,22 +64,22 @@ public class FractionArithmetic {
                     case 1:
                         System.out.println("Entering data for Fraction 1");
                         System.out.print("Input Numerator: ");
-                        numerator1 = scn.nextInt();
+                        numerator = scn.nextInt();
                         System.out.print("Input Denominator: ");
-                        denominator1 = scn.nextInt();
+                        denominator = scn.nextInt();
 
-                        f1.setNumerator(numerator1);
-                        f1.setDenominator(denominator1);
+                        f1.setNumerator(numerator);
+                        f1.setDenominator(denominator);
                         break;
                     case 2:
                         System.out.println("Entering data for Fraction 2");
                         System.out.print("Input Numerator: ");
-                        numerator2 = scn.nextInt();
+                        numerator = scn.nextInt();
                         System.out.print("Input Denominator: ");
-                        denominator2 = scn.nextInt();
+                        denominator = scn.nextInt();
 
-                        f2.setNumerator(numerator2);
-                        f2.setDenominator(denominator2);
+                        f2.setNumerator(numerator);
+                        f2.setDenominator(denominator);
                         break;
                     case 3:
                         solve.add(f1.getNumerator(), f2.getNumerator(), f1.getDenominator(), f2.getDenominator());
