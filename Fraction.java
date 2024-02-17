@@ -8,9 +8,9 @@ public class Fraction {
         numerator = 0;
         denominator = 0;
     }
-    public Fraction(int wholeNumVal){   //wtf is the value of wholeNumVal
-        numerator = 0;
-        denominator = 0;
+    public Fraction(int wholeNumVal){
+        numerator = wholeNumVal;
+        denominator = 1;
     }
     public Fraction(int num, int den){
         numerator = num;
@@ -43,13 +43,10 @@ public class Fraction {
         }
         return gcd;
     }
-    public int computeLCD(int d1, int d2){
-        int div = computeGCD(d1, d2);
-        int lcd = (d1 * d2) / div;
-        return lcd;
-    }
-    public void add(int num1, int den1, int num2, int den2){
-        int lcd = computeLCD(den1, den2);
+    public String add(int num1, int den1, int num2, int den2){
+        int div = computeGCD(den1, den2);
+        int lcd = (den1 * den2) / div;
+
         num1 *= (lcd / den1);
         num2 *= (lcd / den2);
         den1 = lcd;
@@ -57,12 +54,39 @@ public class Fraction {
 
         int sumNum = num1 + num2;
         double dec = (double) sumNum / lcd;
-        System.out.printf("\n🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀" +
-                          "\n🎀                                  🎀" +
-                          "\n🎀 Fraction 1: %d/%d                🎀" +
-                          "\n🎀 Fraction 2: %d/%d                🎀" +
-                          "\n🎀 Sum of Fractions: %d/%d or %.2f  🎀" +
-                          "\n🎀                                  🎀" +
-                          "\n🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀🎀", num1 , den1, num2, den2, sumNum, lcd, dec);
+
+        return (sumNum + "/" + lcd + " or " + dec);
+    }
+    public String subtract(int num1, int den1, int num2, int den2){
+        int div = computeGCD(den1, den2);
+        int lcd = (den1 * den2) / div;
+
+        num1 *= (lcd / den1);
+        num2 *= (lcd / den2);
+        den1 = lcd;
+        den2 = lcd;
+
+        int difNum = num1 - num2;
+        double dec = (double) difNum / lcd;     // need to make decimal converter method for "or" .2f option in results
+
+        return (difNum + "/" + lcd + " or " + dec);
+    }
+    public String multiply(int num1, int den1, int num2, int den2){
+        int divisor = num1 * num2;
+        int dividend = den1 * den2;
+
+        return (divisor + "/" + dividend);
+    }
+    public String divide(int num1, int den1, int num2, int den2){
+        int divisor = num1 * den2;
+        int dividend = den1 * num1;
+
+        return (divisor + "/" + dividend);
+    }
+    public String reduce(int num, int den){
+        int gcd = computeGCD(num, den);
+        int redNum = num / gcd;
+        int redDen = den / gcd;
+        return redNum + "/" + redDen;
     }
 }
