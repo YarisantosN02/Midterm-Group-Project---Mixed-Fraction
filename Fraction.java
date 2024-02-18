@@ -35,19 +35,21 @@ public class Fraction {
     public double toDouble(){
         return (numerator / denominator);
     }
-    public int computeGCD(int a, int b){
-        int num;    // acts as temp
+   private int computeGCD(int num1, int  num2) {
+        //Euclidian Algorithm
+        //a is the greater number, b is the lesser number
+        int a,b;
+        a = Math.max(num1, num2);
+        b = Math.min(num1, num2);
 
-        if (a < b){ // arranges values by size; larger value first
-            num = a;
-            a = b;
-            b = num;
+        int r = 0; //remainder
+
+        while (a % b != 0) {
+            r = a % b;
+            a = b; //the previous denominator of a/b will be the dividend
+            b = r; //the previous remainder will be the divisor
         }
-        while (a % b != 0){ // uses Euclidean Algorithm
-            num = a % b;
-            a = b;
-            b = num;
-        }
+
         return b;
     }
     public String convertToDecimal(double num, double den){
