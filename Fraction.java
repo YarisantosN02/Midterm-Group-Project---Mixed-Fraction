@@ -34,14 +34,22 @@ public class Fraction {
     public double toDouble(){
         return numerator / denominator;
     }
-    public int computeGCD(int d1, int d2){
-        int gcd = 0;
-        for (int i = 1; i <= d1 && i <= d2; i++){    // change code
-            if (d1 % i == 0 && d2 % i == 0) {
-                gcd = i;
-            }
+    private int computeGCD(int num1, int  num2) {
+        //Euclidian Algorithm
+        //a is the greater number, b is the lesser number
+        int a,b;
+        a = Math.max(num1, num2);
+        b = Math.min(num1, num2);
+
+        int r = 0; //remainder
+
+        while (a % b != 0) {
+            r = a % b;
+            a = b; //the previous denominator of a/b will be the dividend
+            b = r; //the previous remainder will be the divisor
         }
-        return gcd;
+
+        return b;
     }
     public String add(int num1, int den1, int num2, int den2){
         int div = computeGCD(den1, den2);
