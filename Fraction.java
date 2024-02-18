@@ -33,10 +33,10 @@ public class Fraction {
         return (numerator + "/" + denominator);
     }
     public double toDouble(){
-        return (numerator / denominator);
+        return ((double)numerator / denominator);
     }
-   private int computeGCD(int num1, int  num2) {
-        //Euclidian Algorithm
+    public int computeGCD(int num1, int num2){
+        //Euclidean Algorithm
         //a is the greater number, b is the lesser number
         int a,b;
         a = Math.max(num1, num2);
@@ -52,13 +52,13 @@ public class Fraction {
 
         return b;
     }
-    public String convertToDecimal(double num, double den){
+    public String toDecimal(double num, double den){
         DecimalFormat df = new DecimalFormat("#.##");   // formats decimal places to hundredths
 
         double dec = num / den; // getting decimal value
         return (df.format(dec));
     }
-    public String add(int num1, int den1, int num2, int den2){
+    public String add(int num1, int num2, int den1, int den2){
         int div = computeGCD(den1, den2);
         int lcd = (den1 * den2) / div;  // computes LCD
 
@@ -66,9 +66,9 @@ public class Fraction {
         num2 *= (lcd / den2);
 
         int sumNum = num1 + num2;
-        return (sumNum + "/" + lcd + " or " + convertToDecimal(sumNum, lcd));   // displays in main method
+        return (sumNum + "/" + lcd + " or " + toDecimal(sumNum, lcd));   // displays in main method
     }
-    public String subtract(int num1, int den1, int num2, int den2){
+    public String subtract(int num1, int num2, int den1, int den2){
         int div = computeGCD(den1, den2);
         int lcd = (den1 * den2) / div;  // computes LCD
 
@@ -76,24 +76,24 @@ public class Fraction {
         num2 *= (lcd / den2);
 
         int difNum = num1 - num2;
-        return (difNum + "/" + lcd + " or " + convertToDecimal(difNum, lcd));   // displays in main method
+        return (difNum + "/" + lcd + " or " + toDecimal(difNum, lcd));   // displays in main method
     }
-    public String multiply(int num1, int den1, int num2, int den2){
+    public String multiply(int num1, int num2, int den1, int den2){
         int divisor = num1 * num2;
         int dividend = den1 * den2;
 
-        return (divisor + "/" + dividend + " or " + convertToDecimal(divisor, dividend));   // displays in main method
+        return (divisor + "/" + dividend + " or " + toDecimal(divisor, dividend));   // displays in main method
     }
-    public String divide(int num1, int den1, int num2, int den2){
+    public String divide(int num1, int num2, int den1, int den2){
         int divisor = num1 * den2;
         int dividend = den1 * num2;
 
-        return (divisor + "/" + dividend + " or " + convertToDecimal(divisor, dividend));   // displays in main method
+        return (divisor + "/" + dividend + " or " + toDecimal(divisor, dividend));   // displays in main method
     }
     public String reduce(int num, int den){
         int gcd = computeGCD(num, den);
         int redNum = num / gcd;
         int redDen = den / gcd;
-        return redNum + "/" + redDen + " or " + convertToDecimal(redNum, redDen);   // displays in main method
+        return redNum + "/" + redDen + " or " + toDecimal(redNum, redDen);   // displays in main method
     }
 }
