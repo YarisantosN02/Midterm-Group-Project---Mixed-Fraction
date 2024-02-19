@@ -15,7 +15,7 @@ It implements a Fraction class and a FractionArithmetic class to perform operati
 
 ## Project Structure 📁
 
-  **Package**: _prog2.prelimgroup_
+  **Package**: _prog2.prelimgroup3_
   
   **Classes**:
   
