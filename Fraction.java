@@ -13,9 +13,9 @@ public class Fraction {
         numerator = wholeNumVal;
         denominator = 1;
     }
-    public Fraction(int num, int den){
-        numerator = num;
-        denominator = den;
+    public Fraction(int numerator, int denominator){
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
     public void setNumerator(int num){
         numerator = num;
