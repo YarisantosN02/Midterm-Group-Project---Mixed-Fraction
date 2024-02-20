@@ -35,6 +35,12 @@ public class Fraction {
     public double toDouble(){
         return ((double)numerator / denominator);
     }
+    public String toDecimal(double num, double den){
+        DecimalFormat df = new DecimalFormat("#.##");   // formats decimal places to hundredths
+
+        double dec = num / den; // getting decimal value
+        return (df.format(dec));
+    }
     public int computeGCD(int num1, int num2){
         //Euclidean Algorithm
         //a is the greater number, b is the lesser number
@@ -51,12 +57,6 @@ public class Fraction {
         }
 
         return b;
-    }
-    public String toDecimal(double num, double den){
-        DecimalFormat df = new DecimalFormat("#.##");   // formats decimal places to hundredths
-
-        double dec = num / den; // getting decimal value
-        return (df.format(dec));
     }
     public String add(int num1, int num2, int den1, int den2){
         int div = computeGCD(den1, den2);
