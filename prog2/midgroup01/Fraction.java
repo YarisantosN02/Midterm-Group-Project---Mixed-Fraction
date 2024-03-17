@@ -1,4 +1,4 @@
-package prog2.prelimgroup;
+package prog2.midgroup01;
 
 import java.text.DecimalFormat;
 public class Fraction {
@@ -9,13 +9,18 @@ public class Fraction {
         numerator = 0;
         denominator = 0;
     }
+
     public Fraction(int wholeNumVal){
         numerator = wholeNumVal;
         denominator = 1;
     }
+
+    /**Will throw an Arithmetic Exception if denominator is zero*/
     public Fraction(int numerator, int denominator){
         this.numerator = numerator;
         this.denominator = denominator;
+        if (this.denominator == 0)
+            throw new ArithmeticException("Denominator cannot be zero");
     }
     public void setNumerator(int num){
         numerator = num;
@@ -32,11 +37,13 @@ public class Fraction {
     public String toString(){
         return (numerator + "/" + denominator);
     }
+    public double toDouble() {
+        return (double) numerator/denominator;
+    }
+
     public String toDecimal(double num, double den){
         DecimalFormat df = new DecimalFormat("#.##");   // formats decimal places to hundredths
-
-        double dec = num / den; // getting decimal value
-        return (df.format(dec));
+        return (df.format(toDouble()));
     }
     public int computeGCD(int num1, int num2){
         //Euclidean Algorithm

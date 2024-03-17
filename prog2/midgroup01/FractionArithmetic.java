@@ -1,5 +1,4 @@
-package prog2.prelimgroup;
-
+package prog2.midgroup01;
 /*
 Program: Prelim Group Project 1
 Members:
@@ -13,6 +12,9 @@ Members:
  */
 import java.text.DecimalFormat;
 import java.util.Scanner;
+// GUI will be used for this project.
+// This class will be deleted or replaced with FractionTester
+
     public class FractionArithmetic {
         public static void main(String[] args) {
             // Initialize Scanner for user input
