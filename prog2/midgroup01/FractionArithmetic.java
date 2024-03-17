@@ -1,4 +1,4 @@
-package prog2.prelimgroup3;
+package prog2.prelimgroup;
 
 /*
 Program: Prelim Group Project 1
@@ -128,7 +128,7 @@ import java.util.Scanner;
                         f1.setDenominator(denominator);
 
                         // Displaying the entered fraction and its decimal value
-                        System.out.print("     You have entered: " + f1.toString() + " or " + df.format(f1.toDouble()) +
+                        System.out.print("     You have entered: " + f1.toString() + " or " + f1.toDecimal(f1.getNumerator(), f1.getDenominator()) +
                                 "\n| ═════════════════════════════════════════ |" +
                                 "\n| Press [ENTER] to return to the Main Menu. |" +
                                 "\n╰───────────────────────────────────────────╯\n");
@@ -162,7 +162,7 @@ import java.util.Scanner;
                         f2.setDenominator(denominator);
 
                         // Displaying the entered fraction and its decimal value
-                        System.out.print("     You have entered: " + f2.toString() + " or " + df.format(f2.toDouble())+
+                        System.out.print("     You have entered: " + f2.toString() + " or " + f2.toDecimal(f2.getNumerator(), f2.getDenominator())+
                                 "\n| ═════════════════════════════════════════ |" +
                                 "\n| Press [ENTER] to return to the Main Menu. |" +
                                 "\n╰───────────────────────────────────────────╯\n");
