@@ -10,20 +10,53 @@ public class MixedFraction extends Fraction{
         fraction= new Fraction();
     }
 
+    /**User might want to convert an improper fraction to a mixed fraction*/
+
+    /**Use if whole and fraction is given*/
     public MixedFraction(int whole, Fraction fraction){
 
-        this.whole = whole;
-        this.fraction = fraction;
+        if (fraction.getNumerator() > fraction.getDenominator()) {
+            int newNumerator, newWhole;
+            newWhole = fraction.getNumerator()/getDenominator() + whole;
+            newNumerator = fraction.getNumerator()%fraction.getDenominator();
 
+            this.whole = newWhole;
+            this.fraction = new Fraction(newNumerator, fraction.getDenominator());
+        } else {
+            this.whole = whole;
+            this.fraction = fraction;
+        }
     }
 
-    public MixedFraction(int whole, int numerator, int denominator){
-        this.whole = whole;
+    /**Use if whole, numerator, and denominator is given*/
+    public MixedFraction(int whole, int numerator, int denominator) {
+        if (denominator == 0) throw new ArithmeticException("Denominator cannot be 0");
         fraction = new Fraction(numerator, denominator);
-    }
 
+        if (numerator > denominator) {
+            int newNumerator, newWhole;
+            newWhole = numerator / denominator + whole;
+            newNumerator = numerator % denominator;
+
+            this.whole = newWhole;
+            this.fraction = new Fraction(newNumerator, fraction.getDenominator());
+        } else {
+            this.whole = whole;
+            this.fraction = new Fraction(numerator, denominator);
+        }
+    }
+    /**Use if only the fraction is given*/
     public MixedFraction(Fraction fraction){
-        this.fraction = fraction;
+        if (fraction.getNumerator() > fraction.getDenominator()) {
+            int newNumerator, newWhole;
+            newWhole = fraction.getNumerator()/getDenominator() + whole;
+            newNumerator = fraction.getNumerator()%fraction.getDenominator();
+
+            this.whole = newWhole;
+            this.fraction = new Fraction(newNumerator, fraction.getDenominator());
+        } else {
+            this.fraction = fraction;
+        }
     }
 
     public void setWholePart(int whole){

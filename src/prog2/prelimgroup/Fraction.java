@@ -9,12 +9,18 @@ public class Fraction {
         numerator = 0;
         denominator = 0;
     }
+
+    /**Assumes the user has inputted a whole number which turns into a fraction. (x = x/1)*/
     public Fraction(int wholeNumVal){
         numerator = wholeNumVal;
         denominator = 1;
     }
+
+    /**The user has inputted a numerator and a denominator in the constructor. Throws an Arithmetic
+     * Excpetion if denominator = 0*/
     public Fraction(int numerator, int denominator){
         this.numerator = numerator;
+        if (denominator == 0) throw new ArithmeticException("Denominator cannot be 0");
         this.denominator = denominator;
     }
     public void setNumerator(int num){
@@ -24,6 +30,7 @@ public class Fraction {
         return numerator;
     }
     public void setDenominator(int den){
+        if (denominator == 0) throw new ArithmeticException("Denominator cannot be 0");
         denominator = den;
     }
     public int getDenominator(){
@@ -41,7 +48,12 @@ public class Fraction {
         double dec = num / den; // getting decimal value
         return (df.format(dec));
     }
-    public int computeGCD(int num1, int num2){
+
+    /** Mixed Fractions may have defaulted the numerator, denominator or both to 0 when 2 denominators are the same when
+     * computing for the GCD.
+     * Which will affect the methods below. NEEDS FIX
+     */
+    private int computeGCD(int num1, int num2){
         //Euclidean Algorithm
         //a is the greater number, b is the lesser number
         int a,b;
@@ -110,6 +122,8 @@ public class Fraction {
 
         return new Fraction(divisor, dividend);   // displays in main method
     }
+
+
     public Fraction reduce(Fraction other){
         int num= other.getNumerator();
         int den= other.getDenominator();
