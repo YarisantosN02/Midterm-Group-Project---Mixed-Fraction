@@ -11,6 +11,7 @@ public class MixedFraction extends Fraction{
     }
 
     public MixedFraction(int whole, Fraction fraction){
+
         this.whole = whole;
         this.fraction = fraction;
 
