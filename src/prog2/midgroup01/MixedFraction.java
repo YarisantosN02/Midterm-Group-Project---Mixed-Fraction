@@ -3,35 +3,39 @@ import prog2.prelimgroup.Fraction;
 
 public class MixedFraction extends Fraction{
     private int whole;
+
+    // fraction instance variable is unnecessary
+    // public Fraction methods are already inherited to the
+    // MixedFraction class via the extends operator
     private Fraction fraction;
 
     public MixedFraction(){
         whole= 0;
-        fraction= new Fraction();
     }
 
     /**User might want to convert an improper fraction to a mixed fraction*/
 
     /**Use if whole and fraction is given*/
     public MixedFraction(int whole, Fraction fraction){
-
+        setDenominator(fraction.getDenominator());
         if (fraction.getNumerator() > fraction.getDenominator()) {
             int newNumerator, newWhole;
             newWhole = fraction.getNumerator()/getDenominator() + whole;
             newNumerator = fraction.getNumerator()%fraction.getDenominator();
 
             this.whole = newWhole;
-            this.fraction = new Fraction(newNumerator, fraction.getDenominator());
+            setNumerator(newNumerator);
         } else {
             this.whole = whole;
-            this.fraction = fraction;
+            setNumerator(fraction.getNumerator());
+            setDenominator(fraction.getDenominator());
         }
     }
 
     /**Use if whole, numerator, and denominator is given*/
     public MixedFraction(int whole, int numerator, int denominator) {
         if (denominator == 0) throw new ArithmeticException("Denominator cannot be 0");
-        fraction = new Fraction(numerator, denominator);
+        setDenominator(denominator);
 
         if (numerator > denominator) {
             int newNumerator, newWhole;
@@ -39,23 +43,24 @@ public class MixedFraction extends Fraction{
             newNumerator = numerator % denominator;
 
             this.whole = newWhole;
-            this.fraction = new Fraction(newNumerator, fraction.getDenominator());
+            setNumerator(newNumerator);
         } else {
             this.whole = whole;
-            this.fraction = new Fraction(numerator, denominator);
+            setNumerator(numerator);
         }
     }
     /**Use if only the fraction is given*/
     public MixedFraction(Fraction fraction){
+        setDenominator(fraction.getDenominator());
         if (fraction.getNumerator() > fraction.getDenominator()) {
             int newNumerator, newWhole;
             newWhole = fraction.getNumerator()/getDenominator() + whole;
             newNumerator = fraction.getNumerator()%fraction.getDenominator();
 
             this.whole = newWhole;
-            this.fraction = new Fraction(newNumerator, fraction.getDenominator());
+            setNumerator(newNumerator);
         } else {
-            this.fraction = fraction;
+            setNumerator(fraction.getNumerator());
         }
     }
 
@@ -108,12 +113,12 @@ public class MixedFraction extends Fraction{
 
     @Override
     public double toDouble() {
-        double fractionNum= fraction.toDouble();
+        double fractionNum= (double) getNumerator() / getDenominator();
         return whole + fractionNum;
     }
 
     public MixedFraction add(MixedFraction other){
-        Fraction fraction1 = this.toFraction();
+        Fraction fraction1 = this.toFraction(); //this line of code made me lose my mine
         Fraction fraction2 = other.toFraction();
 
         Fraction sum = fraction1.add(fraction2);
