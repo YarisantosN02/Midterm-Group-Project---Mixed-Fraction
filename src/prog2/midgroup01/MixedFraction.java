@@ -5,17 +5,16 @@ public class MixedFraction extends Fraction{
     private int whole;
 
     // fraction instance variable is unnecessary
-    // public Fraction methods are already inherited to the
-    // MixedFraction class via the extends operator
-    private Fraction fraction;
+    // public Fraction methods are already inherited to the MixedFraction class via the extends operator
 
     public MixedFraction(){
         whole= 0;
     }
 
-    /**User might want to convert an improper fraction to a mixed fraction*/
-
-    /**Use if whole and fraction is given*/
+    /**
+     * User might want to convert an improper fraction to a mixed fraction
+     * Use if whole and fraction is given
+     * */
     public MixedFraction(int whole, Fraction fraction){
         setDenominator(fraction.getDenominator());
         if (fraction.getNumerator() > fraction.getDenominator()) {
@@ -69,7 +68,8 @@ public class MixedFraction extends Fraction{
     }
 
     public void setFractionPart(Fraction fraction){
-        this.fraction = fraction;
+        setNumerator(fraction.getNumerator());
+        setDenominator(fraction.getDenominator());
     }
 
     public int getWhole(){
@@ -77,12 +77,12 @@ public class MixedFraction extends Fraction{
     }
 
     public Fraction getFractionPart(){
-        return fraction;
+        return new Fraction(getNumerator(), getDenominator());
     }
 
     public Fraction toFraction(){
-        int num = (fraction.getDenominator() * whole) + fraction.getNumerator();
-        int den = fraction.getDenominator();
+        int num = (getDenominator() * whole) + getNumerator();
+        int den = getDenominator();
         return new Fraction(num, den);
     }
 
@@ -98,15 +98,15 @@ public class MixedFraction extends Fraction{
     @Override
     public String toString() {
         String mixedFrac;
-        if (fraction.toDouble() == 0) {
-            mixedFrac = whole + "";
+        if (getNumerator() == 0) {
+            mixedFrac = String.valueOf(whole);
         } else {
             // if whole number is zero
-            if(whole == 0){
-                mixedFrac= fraction.toString();
-            }else {
-                mixedFrac = (whole + " " + fraction.toString());
-            }
+            if (whole == 0)
+                mixedFrac = getNumerator()+"/"+getDenominator();
+            else
+                mixedFrac = whole+ " " + getNumerator() + "/" + getDenominator();
+
         }
         return mixedFrac;
     }
@@ -118,38 +118,70 @@ public class MixedFraction extends Fraction{
     }
 
     public MixedFraction add(MixedFraction other){
-        Fraction fraction1 = this.toFraction(); //this line of code made me lose my mine
-        Fraction fraction2 = other.toFraction();
+        int num1= this.getNumerator();
+        int num2= other.getNumerator();
+        int den1= this.getDenominator();
+        int den2= other.getDenominator();
+        int whole1= this.getWhole();
+        int whole2= other.getWhole();
 
-        Fraction sum = fraction1.add(fraction2);
+        int div = computeGCD(den1, den2);
+        int lcd = (den1 * den2) / div;  // computes LCD
 
-        return toMixedFraction(sum);
+        num1 *= (lcd / den1);   // converting numerators to match their denominator
+        num2 *= (lcd / den2);
+
+        int sumWhole = whole1+whole2;
+        int sumNum = num1 + num2;
+        return new MixedFraction(sumWhole,sumNum, lcd);   // displays in main method
     }
 
     public MixedFraction subtract(MixedFraction other){
-        Fraction fraction1 = this.toFraction();
-        Fraction fraction2 = other.toFraction();
+        int num1= this.getNumerator();
+        int num2= other.getNumerator();
+        int den1= this.getDenominator();
+        int den2= other.getDenominator();
+        int whole1= this.getWhole();
+        int whole2= other.getWhole();
 
-        Fraction difference = fraction1.subtract(fraction2);
+        int div = computeGCD(den1, den2);
+        int lcd = (den1 * den2) / div;  // computes LCD
 
-        return toMixedFraction(difference);
+        num1 *= (lcd / den1);   // converting numerators to match their denominator
+        num2 *= (lcd / den2);
+
+        int sumWhole = whole1 - whole2;
+        int sumNum = num1 - num2;
+        return new MixedFraction(sumWhole,sumNum, lcd);   // displays in main method
     }
 
     public MixedFraction multiplyBy(MixedFraction other){
         Fraction fraction1 = this.toFraction();
         Fraction fraction2 = other.toFraction();
 
-        Fraction product = fraction1.multiply(fraction2);
+        int num1= fraction1.getNumerator();
+        int num2= fraction2.getNumerator();
+        int den1= fraction1.getDenominator();
+        int den2= fraction2.getDenominator();
 
-        return toMixedFraction(product);
+        int num = num1 * num2;
+        int den = den1 * den2;
+
+        return new MixedFraction(new Fraction(num,den));
     }
 
     public MixedFraction divideBy(MixedFraction other){
         Fraction fraction1 = this.toFraction();
         Fraction fraction2 = other.toFraction();
 
-        Fraction quotient = fraction1.divide(fraction2);
+        int num1= fraction1.getNumerator();
+        int num2= fraction2.getNumerator();
+        int den1= fraction1.getDenominator();
+        int den2= fraction2.getDenominator();
 
-        return toMixedFraction(quotient);
+        int num = num1 * den2;
+        int den = den1 + num2;
+
+        return new MixedFraction(new Fraction(num,den));
     }
 }
