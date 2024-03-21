@@ -54,21 +54,26 @@ public class Fraction {
      * Which will affect the methods below. NEEDS FIX
      */
     private int computeGCD(int num1, int num2){
-        //Euclidean Algorithm
-        //a is the greater number, b is the lesser number
-        int a,b;
-        a = Math.max(num1, num2);
-        b = Math.min(num1, num2);
+        //if both numbers are zero, return 0
+        if (num1 == 0 || num2 == 0){
+            return 0;
+        }else {
+            //Euclidean Algorithm
+            //a is the greater number, b is the lesser number
+            int a,b;
+            a = Math.max(num1, num2);
+            b = Math.min(num1, num2);
 
-        int r = 0; //remainder
+            int r = 0; //remainder
 
-        while (a % b != 0) {
-            r = a % b;
-            a = b; //the previous denominator of a/b will be the dividend
-            b = r; //the previous remainder will be the divisor
+            while (a % b != 0) {
+                r = a % b;
+                a = b; //the previous denominator of a/b will be the dividend
+                b = r; //the previous remainder will be the divisor
+            }
+
+            return b;
         }
-
-        return b;
     }
     public Fraction add(Fraction other){
         int num1= this.getNumerator();
@@ -125,12 +130,17 @@ public class Fraction {
 
 
     public Fraction reduce(Fraction other){
-        int num= other.getNumerator();
-        int den= other.getDenominator();
+        int num = other.getNumerator();
+        int den = other.getDenominator();
 
-        int gcd = computeGCD(num, den);
-        int redNum = num / gcd;
-        int redDen = den / gcd;
-        return new Fraction(redNum,redDen);   // displays in main method
+        if (num == 0 || den == 0) {
+            return new Fraction(0, 1); // Or any non-zero denominator value
+        } else {
+
+            int gcd = computeGCD(num, den);
+            int redNum = num / gcd;
+            int redDen = den / gcd;
+            return new Fraction(redNum, redDen);   // displays in main method
+        }
     }
 }
