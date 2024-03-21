@@ -49,11 +49,7 @@ public class Fraction {
         return (df.format(dec));
     }
 
-    /** Mixed Fractions may have defaulted the numerator, denominator or both to 0 when 2 denominators are the same when
-     * computing for the GCD.
-     * Which will affect the methods below. NEEDS FIX
-     */
-    private int computeGCD(int num1, int num2){
+    public int computeGCD(int num1, int num2){
         //if both numbers are zero, return 0
         if (num1 == 0 || num2 == 0){
             return 0;
