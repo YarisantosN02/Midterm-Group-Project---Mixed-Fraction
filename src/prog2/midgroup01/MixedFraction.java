@@ -92,6 +92,7 @@ public class MixedFraction extends Fraction{
         return whole;
     }
 
+
     /**
      * Returns the Fraction Part of the Mixed Fraction
      * */
