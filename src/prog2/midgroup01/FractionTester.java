@@ -1,8 +1,9 @@
 package prog2.midgroup01;
 import javax.swing.*;
 
-    public static void main(String[] args){
-       /* Set the Nimbus look and feel */
+public class FractionTester {
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
@@ -30,8 +31,8 @@ import javax.swing.*;
             public void run() {
                 new GUI().setVisible(true);
             }
-        })  ;
+        });
     }
+}
 
     
-
