@@ -31,6 +31,9 @@ public class FractionTester {
         System.out.print("\n Subtraction: "+ fraction1.toString() +" - "+ fraction2.toString() +" = "+ dif.toString()+" or "+ dif.toDouble());
         System.out.print("\n Division: "+ fraction1.toString() +" / "+ fraction2.toString() +" = "+ quotient.toString()+" or "+ quotient.toDouble());
         System.out.print("\n Multiplication: "+ fraction1.toString() +" * "+ fraction2.toString() +" = "+ product.toString()+" or "+ product.toDouble());
+        System.out.print("\nFraction 1 whole number:"+ fraction1.getWhole());
+        System.out.print("\nFraction 1 numerator:"+ fraction1.getNumerator());
+        System.out.print("\nFraction 1 denominator:"+ fraction1.getDenominator());
 
 
 
