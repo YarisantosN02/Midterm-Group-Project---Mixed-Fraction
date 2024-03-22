@@ -1,18 +1,6 @@
 package prog2.midgroup01;
-import prog2.prelimgroup.Fraction;
-
 import javax.swing.*;
 
-public class FractionTester {
-    public static void main(String[] args){
-        //call GUI here
-
-        package prog2.midgroup01;
-import prog2.prelimgroup.Fraction;
-
-import javax.swing.*;
-
-public class FractionTester {
     public static void main(String[] args){
        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -45,5 +33,5 @@ public class FractionTester {
         })  ;
     }
 
-    }
+    
 
