@@ -201,7 +201,7 @@ public class FractionArithmetic {
 
 
                 case 5:
-                    Fraction product= f1.multiply(f2);
+                    Fraction product= f1.multiplyBy(f2);
                     // Performing MULTIPLICATION operation on fractions --------------------------------------------
                     System.out.println("╭───────────────────────────────────────────╮\n" +
                             "|    SELECTED OPERATION: MULTIPLICATION     |\n" +
@@ -216,7 +216,7 @@ public class FractionArithmetic {
 
 
                 case 6:
-                    Fraction quotient= f1.divide(f2);
+                    Fraction quotient= f1.divideBy(f2);
                     // Performing DIVISION operation on fractions --------------------------------------------------
                     System.out.println("╭───────────────────────────────────────────╮\n" +
                             "|       SELECTED OPERATION: DIVISION        |\n" +

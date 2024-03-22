@@ -1,10 +1,12 @@
 package prog2.midgroup01;
+import prog2.prelimgroup.Fraction;
+
 import java.util.Scanner;
 
 public class FractionTester {
     public static void main(String[] args){
         Scanner kbd= new Scanner(System.in);
-
+      
         System.out.print("Fraction 1 numerator:");
         int numFrac1= kbd.nextInt();
         System.out.print("Fraction 1 denominator:");
