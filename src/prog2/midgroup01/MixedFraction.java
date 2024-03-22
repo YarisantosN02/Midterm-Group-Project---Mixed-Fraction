@@ -135,7 +135,7 @@ public class MixedFraction extends Fraction{
      * */
     @Override
     public double toDouble() {
-        double fractionNum= (double) getNumerator() / getDenominator();
+        double fractionNum= Double.parseDouble(toDecimal(getNumerator(), getDenominator()));
         return whole + fractionNum;
     }
 
