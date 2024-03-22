@@ -1,9 +1,14 @@
 package prog2.midgroup01;
 
 import javax.swing.*;
+import java.awt.*;
+import javax.swing.text.*;
+
 
 public class GUI extends javax.swing.JFrame {
 
+    JTextField textfield;
+    JLabel label;
     /**
      * Creates new form NewJFrame
      */
@@ -21,6 +26,7 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
+        //initialize the components of the GUI
         jPanel1 = new javax.swing.JPanel();
         jfraction2label = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -41,19 +47,28 @@ public class GUI extends javax.swing.JFrame {
         resultNumtextField = new java.awt.TextField();
         resultDentextField = new java.awt.TextField();
 
+
+        //sets location of the window
         setLocation(500, 200);
+
         setResizable(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(253, 202, 64));
 
+        //initializes the background color of the window
+        setBackground(new java.awt.Color(253, 202, 64));
+        //sets the background of the container that contains the header
         jPanel1.setBackground(new java.awt.Color(253, 202, 64));
 
+        //Sets the size, font style and the title of the header
         jfraction2label.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
         jfraction2label.setText("Fraction Calculator");
 
+        //Creates the layout for the container of the header
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
+
+        //horizontal alignment for the components inside the container
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -61,6 +76,8 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(jfraction2label)
                                 .addGap(259, 259, 259))
         );
+
+        //vertical alignment for the components inside the container
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -69,25 +86,31 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(106, 106, 106))
         );
 
+        //Sets the background color of the container below the header
         jPanel2.setBackground(new java.awt.Color(254, 238, 194));
+        //Adds the specified mouse listener to receive mouse events from this container.
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel2MouseClicked(evt);
             }
         });
 
+        //setting the size and font style of the font for the label of the following components:
+        //FRACTION 1 LABEL
         fraction1label.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        fraction1label.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        fraction1label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         fraction1label.setText("Fraction 1");
 
-        f1DentextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        // FRACTION 1 DENOMINATOR TEXT FIELD
+        f1DentextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         f1DentextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f1DentextFieldActionPerformed(evt);
             }
         });
 
-        f1NumtextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        //FRACTION 1 NUMERATOR TEXT FILED
+        f1NumtextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         f1NumtextField.setForeground(new java.awt.Color(0,0,0));
         f1NumtextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,40 +118,47 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        fraction2label.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        fraction2label.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        fraction2label.setText("Fraction 2");
-
-        f2NumtextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        f2NumtextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f2NumtextFieldActionPerformed(evt);
-            }
-        });
-
-        f2DentextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        f2DentextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f2DentextFieldActionPerformed(evt);
-            }
-        });
-
-        f2WholetextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        f2WholetextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f2WholetextFieldActionPerformed(evt);
-            }
-        });
-
-        f1WholetextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        //FRACTION 1 WHOLE NUMBER TEXT FIELD
+        f1WholetextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         f1WholetextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 f1WholetextFieldActionPerformed(evt);
             }
         });
 
+        // FRACTION 2 LABEL
+        fraction2label.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fraction2label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        fraction2label.setText("Fraction 2");
+
+        //FRACTION 2 NUMERATOR TEXT FIELD
+        f2NumtextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        f2NumtextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f2NumtextFieldActionPerformed(evt);
+            }
+        });
+
+        //FRACTION 2 DENOMINATOR TEXT FIELD
+        f2DentextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        f2DentextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f2DentextFieldActionPerformed(evt);
+            }
+        });
+
+        //FRACTION 2 WHOLE NUMBER TEXT FIELD
+        f2WholetextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        f2WholetextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f2WholetextFieldActionPerformed(evt);
+            }
+        });
+
+        //DROP DOWN BOX FOR THE OPERATORS
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "*", "/" }));
 
+        //Compute button to perform arithmetic operations on the fractions
         computeButton.setLabel("Compute");
         computeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,12 +166,20 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        //CLEAR BUTTON to clear the input in the text fields
         clearButton.setLabel("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
+        //EQUAL SIGN LABEL
         jequalsSign.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jequalsSign.setText("=");
 
-        resultWholetextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        //ANSWER WHOLE NUMBER TEXT FIELD
+        resultWholetextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         resultWholetextField.setEditable(false);
         resultWholetextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,11 +187,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        //RESULT LABEL
         resultLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        resultLabel.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        resultLabel.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         resultLabel.setText("Result");
 
-        resultNumtextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        // RESULT NUMERATOR TEXT FILED
+        resultNumtextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         resultNumtextField.setEditable(false);
         resultNumtextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +201,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        resultDentextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        //RESULT DENOMINATOR TEXT FIELD
+        resultDentextField.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         resultDentextField.setEditable(false);
         resultDentextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,8 +210,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        //  Creates a group layout for the container that contains the rest of the elements in the frame, such as the text fields, labels, and buttons
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+
+        // sets layout for the second container
         jPanel2.setLayout(jPanel2Layout);
+
+        //Sets the horizontal alignment of the  components inside the container
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -217,8 +263,10 @@ public class GUI extends javax.swing.JFrame {
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(115, 115, 115)
                                                                 .addComponent(computeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addContainerGap(158, Short.MAX_VALUE))))
-        );
+                                                .addContainerGap(158, Short.MAX_VALUE)))));
+
+
+        //Sets the vertical alignment of the  components inside the container
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -266,16 +314,20 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(computeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(156, Short.MAX_VALUE))
-        );
+                                .addContainerGap(156, Short.MAX_VALUE)));
 
+
+        //Creates the group layout of th frame itself which arranges the containers inside it
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
+        //Sets the horizontal alignment of the containers inside the frame
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+
+        //Sets the vertical alignment of the containers inside the frame
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -286,13 +338,11 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {
         // TODO add your handling code here:
     }
 
     private void f1DentextFieldActionPerformed(java.awt.event.ActionEvent evt) {
-        int num1 = 0;
         // TODO add your handling code here:
     }
 
@@ -338,8 +388,10 @@ public class GUI extends javax.swing.JFrame {
             int f2Den= Integer.parseInt(den2Str);
             int f2Whole= Integer.parseInt(whole2Str);
 
+            // stores user input
             MixedFraction fraction1= new MixedFraction(f1Whole, f1Num, f1Den);
             MixedFraction fraction2= new MixedFraction(f2Whole, f2Num, f2Den);
+
 
             MixedFraction sum= fraction1.add(fraction2);
             MixedFraction dif= fraction1.subtract(fraction2);
@@ -366,11 +418,35 @@ public class GUI extends javax.swing.JFrame {
                     return;
             }
 
-            resultWholetextField.setText(""+result.getWhole());
-            resultNumtextField.setText(""+result.getNumerator());
-            resultDentextField.setText(""+result.getDenominator());
-            JOptionPane.showMessageDialog(null, "Hello "+ "! The result is: " + result.toString()+
-                    "\nFraction 1: "+ fraction1.toString()+"\nFraction 2: "+ fraction2.toString());
+
+            // displays answer to the output box
+
+            //if  the numerator or the denominator is zero
+            if ((result.getNumerator()* result.getDenominator()) == 0) {
+                resultWholetextField.setText(""+result.getWhole());
+                resultNumtextField.setText("");
+                resultDentextField.setText("");
+            } else {
+                // if whole number is zero
+                if (result.getWhole() == 0) {
+                    resultWholetextField.setText("");
+                    resultNumtextField.setText("" + result.getNumerator());
+                    resultDentextField.setText("" + result.getDenominator());
+                }else {
+                    resultWholetextField.setText(""+result.getWhole());
+                    resultNumtextField.setText(""+result.getNumerator());
+                    resultDentextField.setText(""+result.getDenominator());
+
+                }
+
+            }
+
+
+            // shows another window for the results
+            JOptionPane.showMessageDialog(null, "Hello!"+ "The result is: \n" + result.toString()+" or "+ result.toDouble() +
+                     "\nFraction 1: "+ fraction1.toString()+"\nFraction 2: "+ fraction2.toString());
+
+
         } catch (NumberFormatException numEx) {
             JOptionPane.showMessageDialog(null, "Please enter valid numbers!", "ERROR", JOptionPane.ERROR_MESSAGE);
         } catch (ArithmeticException ariEx) {
@@ -379,6 +455,19 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Oh no! It seems like we have encountered an error. \nPlease try again.", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
+    }
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // clears the input inside the tex field
+        f1NumtextField.setText("");
+        f1DentextField.setText("");
+        f1WholetextField.setText("");
+        f2NumtextField.setText("");
+        f2DentextField.setText("");
+        f2WholetextField.setText("");
+        resultNumtextField.setText("");
+        resultDentextField.setText("");
+        resultWholetextField.setText("");
     }
     private void resultWholetextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
