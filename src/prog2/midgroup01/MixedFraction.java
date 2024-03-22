@@ -37,6 +37,14 @@ public class MixedFraction extends Fraction{
         return whole;
     }
 
+    public int getNumerator(){
+        return fraction.getNumerator();
+    }
+    
+    public int getDenominator(){
+        return fraction.getDenominator();
+    }
+
     public Fraction getFractionPart(){
         return fraction;
     }
