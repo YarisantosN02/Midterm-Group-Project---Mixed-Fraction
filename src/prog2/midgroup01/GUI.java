@@ -19,32 +19,35 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jfraction2label = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
-        textField1 = new java.awt.TextField();
-        textField2 = new java.awt.TextField();
-        label2 = new java.awt.Label();
-        textField3 = new java.awt.TextField();
-        textField4 = new java.awt.TextField();
-        textField5 = new java.awt.TextField();
-        textField6 = new java.awt.TextField();
+        fraction1label = new java.awt.Label();
+        f1DentextField = new java.awt.TextField();
+        f1NumtextField = new java.awt.TextField();
+        fraction2label = new java.awt.Label();
+        f2NumtextField = new java.awt.TextField();
+        f2DentextField = new java.awt.TextField();
+        f2WholetextField = new java.awt.TextField();
+        f1WholetextField = new java.awt.TextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        jLabel3 = new javax.swing.JLabel();
-        textField9 = new java.awt.TextField();
-        label4 = new java.awt.Label();
-        textField10 = new java.awt.TextField();
-        textField11 = new java.awt.TextField();
+        computeButton = new java.awt.Button();
+        clearButton = new java.awt.Button();
+        jequalsSign = new javax.swing.JLabel();
+        resultWholetextField = new java.awt.TextField();
+        resultLabel = new java.awt.Label();
+        resultNumtextField = new java.awt.TextField();
+        resultDentextField = new java.awt.TextField();
+
+        setLocation(500, 200);
+        setResizable(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(253, 202, 64));
 
         jPanel1.setBackground(new java.awt.Color(253, 202, 64));
 
-        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
-        jLabel2.setText("Fraction Calculator");
+        jfraction2label.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        jfraction2label.setText("Fraction Calculator");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -52,14 +55,14 @@ public class GUI extends javax.swing.JFrame {
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
+                                .addComponent(jfraction2label)
                                 .addGap(259, 259, 259))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
+                                .addComponent(jfraction2label)
                                 .addGap(106, 106, 106))
         );
 
@@ -70,94 +73,93 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        label1.setText("Fraction 1");
+        fraction1label.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fraction1label.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        fraction1label.setText("Fraction 1");
 
-        textField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField1.addActionListener(new java.awt.event.ActionListener() {
+        f1DentextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        f1DentextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField1ActionPerformed(evt);
+                f1DentextFieldActionPerformed(evt);
             }
         });
 
-        textField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField2.setForeground(new java.awt.Color(153, 153, 153));
-        textField2.setText("Enter numerator");
-        textField2.addActionListener(new java.awt.event.ActionListener() {
+        f1NumtextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        f1NumtextField.setForeground(new java.awt.Color(0,0,0));
+        f1NumtextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField2ActionPerformed(evt);
+                f1NumtextFieldActionPerformed(evt);
             }
         });
 
-        label2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        label2.setText("Fraction 2");
+        fraction2label.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fraction2label.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        fraction2label.setText("Fraction 2");
 
-        textField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField3.addActionListener(new java.awt.event.ActionListener() {
+        f2NumtextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        f2NumtextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField3ActionPerformed(evt);
+                f2NumtextFieldActionPerformed(evt);
             }
         });
 
-        textField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField4.addActionListener(new java.awt.event.ActionListener() {
+        f2DentextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        f2DentextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField4ActionPerformed(evt);
+                f2DentextFieldActionPerformed(evt);
             }
         });
 
-        textField5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField5.addActionListener(new java.awt.event.ActionListener() {
+        f2WholetextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        f2WholetextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField5ActionPerformed(evt);
+                f2WholetextFieldActionPerformed(evt);
             }
         });
 
-        textField6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField6.addActionListener(new java.awt.event.ActionListener() {
+        f1WholetextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        f1WholetextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField6ActionPerformed(evt);
+                f1WholetextFieldActionPerformed(evt);
             }
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "*", "/" }));
 
-        button1.setLabel("Compute");
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        computeButton.setLabel("Compute");
+        computeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                computeButtonActionPerformed(evt);
             }
         });
 
-        button2.setLabel("Clear");
+        clearButton.setLabel("Clear");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel3.setText("=");
+        jequalsSign.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jequalsSign.setText("=");
 
-        textField9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField9.addActionListener(new java.awt.event.ActionListener() {
+        resultWholetextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        resultWholetextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField9ActionPerformed(evt);
+                resultWholetextFieldActionPerformed(evt);
             }
         });
 
-        label4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        label4.setText("Result");
+        resultLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        resultLabel.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        resultLabel.setText("Result");
 
-        textField10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField10.addActionListener(new java.awt.event.ActionListener() {
+        resultNumtextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        resultNumtextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField10ActionPerformed(evt);
+                resultNumtextFieldActionPerformed(evt);
             }
         });
 
-        textField11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textField11.addActionListener(new java.awt.event.ActionListener() {
+        resultDentextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        resultDentextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField11ActionPerformed(evt);
+                resultDentextFieldActionPerformed(evt);
             }
         });
 
@@ -169,46 +171,46 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGap(152, 152, 152)
-                                                .addComponent(textField6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(f1WholetextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(fraction1label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(f1DentextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(f1NumtextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addGap(28, 28, 28)
                                                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(19, 19, 19)
-                                                                .addComponent(textField5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(f2WholetextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(100, 100, 100)))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(fraction2label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(157, 157, 157))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(f2NumtextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(f2DentextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addGap(68, 68, 68)
-                                                                .addComponent(jLabel3)
+                                                                .addComponent(jequalsSign)
                                                                 .addGap(30, 30, 30)
-                                                                .addComponent(textField9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(resultWholetextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(textField11, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                        .addComponent(resultNumtextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(resultDentextField, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(115, 115, 115)
-                                                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                .addComponent(computeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addContainerGap(158, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -217,47 +219,47 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(72, 72, 72)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(fraction2label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(f2NumtextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(f2DentextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(29, 29, 29)
-                                                                .addComponent(textField5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(f2WholetextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(64, 64, 64)
-                                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addComponent(jequalsSign, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(fraction1label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(f1NumtextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(f1DentextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(29, 29, 29)
-                                                                .addComponent(textField6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addComponent(f1WholetextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(resultNumtextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(textField11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(resultDentextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(29, 29, 29)
-                                                                .addComponent(textField9, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                                .addComponent(resultWholetextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(computeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(156, Short.MAX_VALUE))
         );
 
@@ -283,44 +285,44 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void f1DentextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         int num1 = 0;
         // TODO add your handling code here:
     }
 
-    private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void f1NumtextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void f2NumtextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField4ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void f2DentextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField5ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void f2WholetextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField6ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void f1WholetextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void computeButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField9ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void resultWholetextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField10ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void resultNumtextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void textField11ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void resultDentextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
@@ -360,25 +362,25 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
-    private java.awt.Button button1;
-    private java.awt.Button button2;
+    private java.awt.Button computeButton;
+    private java.awt.Button clearButton;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jfraction2label;
+    private javax.swing.JLabel jequalsSign;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label4;
-    private java.awt.TextField textField1;
-    private java.awt.TextField textField10;
-    private java.awt.TextField textField11;
-    private java.awt.TextField textField2;
-    private java.awt.TextField textField3;
-    private java.awt.TextField textField4;
-    private java.awt.TextField textField5;
-    private java.awt.TextField textField6;
-    private java.awt.TextField textField9;
+    private java.awt.Label fraction1label;
+    private java.awt.Label fraction2label;
+    private java.awt.Label resultLabel;
+    private java.awt.TextField f1DentextField;
+    private java.awt.TextField resultNumtextField;
+    private java.awt.TextField resultDentextField;
+    private java.awt.TextField f1NumtextField;
+    private java.awt.TextField f2NumtextField;
+    private java.awt.TextField f2DentextField;
+    private java.awt.TextField f2WholetextField;
+    private java.awt.TextField f1WholetextField;
+    private java.awt.TextField resultWholetextField;
     // End of variables declaration
 }
 
