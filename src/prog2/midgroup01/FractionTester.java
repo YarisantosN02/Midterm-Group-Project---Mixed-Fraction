@@ -40,7 +40,6 @@ public class FractionTester {
             if (denFrac1 == 0 || denFrac2 == 0) {
                 JOptionPane.showMessageDialog(null, "Denominator cannot be zero!" +
                         "\nPlease try again.", "ERROR", JOptionPane.ERROR_MESSAGE);
-                return;
             }
             double result = 0;
 
