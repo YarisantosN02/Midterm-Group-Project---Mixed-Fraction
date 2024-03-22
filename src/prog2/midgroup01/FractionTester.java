@@ -35,9 +35,15 @@ public class FractionTester {
         System.out.print("\nFraction 1 numerator:"+ fraction1.getNumerator());
         System.out.print("\nFraction 1 denominator:"+ fraction1.getDenominator());
 
-
-
-
+        try{
+            //code here
+        } catch (NumberFormatException numEx) {
+            JOptionPane.showMessageDialog(null, "Please enter valid numbers!", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (ArithmeticException ariEx) {
+            JOptionPane.showMessageDialog(null, "Zero (0) cannot be a denominator! \nPlease try again.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Oh no! It seems like we have encountered an error. \nPlease try again.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
