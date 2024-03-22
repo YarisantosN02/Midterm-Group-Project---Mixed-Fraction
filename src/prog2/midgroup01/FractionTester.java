@@ -1,3 +1,14 @@
+/*
+        Program: Midterms Group Project 1
+        Members:
+        - Barrozo, Sebastian
+        - Bernal, Mariella Lyshael Angeli
+        - Caramat, Maria Fides Portia
+        - Mabalot, Rod Clarenz
+        - Palitayan, Ezekial Avensis
+        - Vega, Althea Elise
+        - Yarisantos, Nicole
+*/
 package prog2.midgroup01;
 import javax.swing.*;
 
