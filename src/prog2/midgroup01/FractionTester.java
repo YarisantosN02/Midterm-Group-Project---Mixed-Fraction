@@ -6,10 +6,13 @@ import java.util.Scanner;
 public class FractionTester {
     public static void main(String[] args){
         Scanner kbd= new Scanner(System.in);
-        Fraction fraction1 = new MixedFraction(1,5,10);
-        Fraction fraction2 = new MixedFraction(1,6,10 );
+        MixedFraction fraction1 = new MixedFraction(1,5,10);
+        MixedFraction fraction2 = new MixedFraction(1,6,10 );
 
-        System.out.println(fraction1.add(fraction2));
+        System.out.println(fraction2.add(fraction1));
+        System.out.println(fraction2.subtract(fraction1));
+        System.out.println(fraction2.multiplyBy(fraction1));
+        System.out.println(fraction2.divideBy(fraction1));
 
         //System.out.print("Fraction 1 numerator:");
         //int numFrac1= kbd.nextInt();

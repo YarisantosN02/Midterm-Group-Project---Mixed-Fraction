@@ -17,7 +17,7 @@ public class Fraction {
     }
 
     /**The user has inputted a numerator and a denominator in the constructor. Throws an Arithmetic
-     * Excpetion if denominator = 0*/
+     * Exception if denominator = 0*/
     public Fraction(int numerator, int denominator){
         this.numerator = numerator;
         if (denominator == 0) throw new ArithmeticException("Denominator cannot be 0");
@@ -30,7 +30,7 @@ public class Fraction {
         return numerator;
     }
     public void setDenominator(int den){
-        if (denominator == 0) throw new ArithmeticException("Denominator cannot be 0");
+        if (den == 0) throw new ArithmeticException("Denominator cannot be 0");
         denominator = den;
     }
     public int getDenominator(){
@@ -49,12 +49,16 @@ public class Fraction {
         return (df.format(dec));
     }
 
+
+    /**
+     * Computes the GCD of the given numbers using Euclid's Algorithm.
+     * */
     public int computeGCD(int num1, int num2){
         //if both numbers are zero, return 0
         if (num1 == 0 || num2 == 0){
             return 0;
         }else {
-            //Euclidean Algorithm
+            //Euclid Algorithm
             //a is the greater number, b is the lesser number
             int a,b;
             a = Math.max(num1, num2);
@@ -71,6 +75,11 @@ public class Fraction {
             return b;
         }
     }
+
+    /** Adds first fraction to the second fraction
+     * <br>
+     *     <ul> Usage: First_Fraction.add(Second_Fraction)</ul>
+     **/
     public Fraction add(Fraction other){
         int num1= this.getNumerator();
         int num2= other.getNumerator();
@@ -86,6 +95,11 @@ public class Fraction {
         int sumNum = num1 + num2;
         return new Fraction(sumNum, lcd);   // displays in main method
     }
+
+    /** Subtracts first fraction to the second fraction
+     * <br>
+     *     <ul> Usage: First_Fraction.subtract(Second_Fraction)</ul>
+     **/
     public Fraction subtract(Fraction other){
         int num1= this.getNumerator();
         int num2= other.getNumerator();
@@ -99,9 +113,14 @@ public class Fraction {
         num2 *= (lcd / den2);
 
         int difNum = num1 - num2;
-        return new Fraction(difNum, lcd);   // displays in main method
+        return new Fraction(difNum, lcd);
     }
-    public Fraction multiply(Fraction other){
+
+    /** multiplies first fraction to the second fraction
+     * <br>
+     *     <ul> Usage: First_Fraction.multiplyBy(Second_Fraction)</ul>
+     **/
+    public Fraction multiplyBy(Fraction other){
         int num1= this.getNumerator();
         int num2= other.getNumerator();
         int den1= this.getDenominator();
@@ -110,9 +129,14 @@ public class Fraction {
         int num = num1 * num2;
         int den = den1 * den2;
 
-        return new Fraction(num, den);   // displays in main method
+        return reduce(new Fraction(num, den));
     }
-    public Fraction divide(Fraction other){
+
+    /** Divides first fraction to the second fraction
+     * <br>
+     *     <ul> Usage: First_Fraction.divideBy(Second_Fraction)</ul>
+     **/
+    public Fraction divideBy(Fraction other){
         int num1= this.getNumerator();
         int num2= other.getNumerator();
         int den1= this.getDenominator();
@@ -121,9 +145,8 @@ public class Fraction {
         int divisor = num1 * den2;
         int dividend = den1 * num2;
 
-        return new Fraction(divisor, dividend);   // displays in main method
+        return reduce(new Fraction(divisor, dividend));   // displays in main method
     }
-
 
     public Fraction reduce(Fraction other){
         int num = other.getNumerator();
