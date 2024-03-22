@@ -1,5 +1,7 @@
 package prog2.midgroup01;
 
+import javax.swing.*;
+
 public class GUI extends javax.swing.JFrame {
 
     /**
@@ -312,8 +314,66 @@ public class GUI extends javax.swing.JFrame {
 
     private void computeButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }
 
+        // assigns user input to th following variables
+        String num1Str= f1NumtextField.getText();
+        String den1Str= f1DentextField.getText();
+        String whole1Str= f1WholetextField.getText();
+        String num2Str= f2NumtextField.getText();
+        String den2Str= f2DentextField.getText();
+        String whole2Str= f2WholetextField.getText();
+        String operator= (String) jComboBox1.getSelectedItem();
+
+        try { // convert user input strings to numbers,
+            // Performs the calculation based on the selected operator, and
+            // Handles potential division by zero errors
+            int f1Num= Integer.parseInt(num1Str);
+            int f1Den= Integer.parseInt(den1Str);
+            int f1Whole= Integer.parseInt(whole1Str);
+            int f2Num= Integer.parseInt(num2Str);
+            int f2Den= Integer.parseInt(den2Str);
+            int f2Whole= Integer.parseInt(whole2Str);
+
+            MixedFraction fraction1= new MixedFraction(f1Whole, f1Num, f1Den);
+            MixedFraction fraction2= new MixedFraction(f2Whole, f2Num, f2Den);
+
+            MixedFraction sum= fraction1.add(fraction2);
+            MixedFraction dif= fraction1.subtract(fraction2);
+            MixedFraction quotient= fraction1.divideBy(fraction2);
+            MixedFraction product = fraction1.multiplyBy(fraction2);
+
+            MixedFraction result = new MixedFraction();
+
+            switch (operator) {
+                case "+":
+                    result= sum;
+                    break;
+                case "-":
+                    result= dif;
+                    break;
+                case "*":
+                    result = product;
+                    break;
+                case "/":
+                    result = quotient;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Invalid operator!");
+                    return;
+            }
+
+            resultLabel.setText("Answer");
+            JOptionPane.showMessageDialog(null, "Hello "+ "! The result is: " + result.toString()+
+                    "\nFraction 1: "+ fraction1.toString()+"\nFraction 2: "+ fraction2.toString());
+        } catch (NumberFormatException numEx) {
+            JOptionPane.showMessageDialog(null, "Please enter valid numbers!", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (ArithmeticException ariEx) {
+            JOptionPane.showMessageDialog(null, "Zero (0) cannot be a denominator! \nPlease try again.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Oh no! It seems like we have encountered an error. \nPlease try again.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
     private void resultWholetextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -358,7 +418,7 @@ public class GUI extends javax.swing.JFrame {
             public void run() {
                 new GUI().setVisible(true);
             }
-        });
+        })  ;
     }
 
     // Variables declaration - do not modify
@@ -383,4 +443,3 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.TextField resultWholetextField;
     // End of variables declaration
 }
-
