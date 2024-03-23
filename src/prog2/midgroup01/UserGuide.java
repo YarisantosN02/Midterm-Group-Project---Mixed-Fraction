@@ -24,7 +24,7 @@ public class UserGuide extends JFrame {
         // Set the background color for the entire window (frame) to a yellow color
         getContentPane().setBackground(new java.awt.Color(253, 202, 64));
 
-        // Create a main panel (optional, can be removed if components are added directly to the frame)
+        // mainPanel is a JPanel object that acts as a layout manager
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10)); // Use BorderLayout for basic layout
 
         // Create a text area to display the instructions
